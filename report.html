@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your Name">
-<meta name="dcterms.date" content="2025-01-09">
+<meta name="author" content="Jenny">
+<meta name="dcterms.date" content="2025-01-01">
 
-<title>Homework 2 - ER Models</title>
+<title>CMSC 608 - Homework 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,6 +35,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="report_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="report_files/libs/bootstrap/bootstrap-973236bd072d72a04ee9cd82dcc9cb29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="report_files/libs/quarto-diagram/mermaid.min.js"></script>
+<script src="report_files/libs/quarto-diagram/mermaid-init.js"></script>
+<link href="report_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -47,7 +50,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homework 2 - ER Models</h1>
+<h1 class="title">CMSC 608 - Homework 2</h1>
 </div>
 
 
@@ -57,14 +60,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Your Name </p>
+             <p>Jenny </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 9, 2025</p>
+      <p class="date">January 1, 2025</p>
     </div>
   </div>
   
@@ -76,15 +79,323 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1><strong>Introduction</strong></h1>
-<p>This report covers three <strong>Entity-Relation (ER) Models</strong> with <strong>Chen Notation</strong> and <strong>Crow’s Foot Notation</strong>.</p>
+<section id="entity-relationship-diagrams-er-diagrams" class="level1">
+<h1>Entity-Relationship Diagrams (ER Diagrams)</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Entity-Relationship (ER) diagrams are essential for database design. This report presents the ER models for three selected problems using both <strong>Chen notation (Graphviz)</strong> and <strong>Crow’s Foot notation (Mermaid)</strong>.</p>
+<hr>
 </section>
-<section id="model-1-library-management-system" class="level1">
-<h1><strong>Model 1: Library Management System</strong></h1>
-<section id="chen-notation-graphviz" class="level2">
-<h2 class="anchored" data-anchor-id="chen-notation-graphviz"><strong>Chen Notation (Graphviz)</strong></h2>
-<p>digraph G { Book [shape=box]; Member [shape=box]; Loan [shape=diamond, label=“Borrows”]; Book -&gt; Loan; Member -&gt; Loan; }</p>
+<section id="problem-1-library-management-system" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1-library-management-system">Problem 1: Library Management System</h2>
+<section id="entities-and-attributes" class="level3">
+<h3 class="anchored" data-anchor-id="entities-and-attributes"><strong>Entities and Attributes</strong></h3>
+<ul>
+<li><strong>Book</strong> (book_id, title, author, genre, publication_year)</li>
+<li><strong>Member</strong> (member_id, name, membership_date, email, phone)</li>
+<li><strong>Loan</strong> (loan_id, book_id, member_id, loan_date, return_date)</li>
+</ul>
+</section>
+<section id="chen-notation-graphviz" class="level3">
+<h3 class="anchored" data-anchor-id="chen-notation-graphviz"><strong>Chen Notation (Graphviz)</strong></h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 143.71 132.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>ER</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-128.8 139.71,-128.8 139.71,4 -4,4"></polygon>
+<!-- Book -->
+<g id="node1" class="node">
+<title>Book</title>
+<polygon fill="none" stroke="black" points="54,-124.8 0,-124.8 0,-88.8 54,-88.8 54,-124.8"></polygon>
+<text text-anchor="middle" x="27" y="-102.6" font-family="Times,serif" font-size="14.00">Book</text>
+</g>
+<!-- Loan -->
+<g id="node3" class="node">
+<title>Loan</title>
+<polygon fill="none" stroke="black" points="65,-36 21.16,-18 65,0 108.84,-18 65,-36"></polygon>
+<text text-anchor="middle" x="65" y="-13.8" font-family="Times,serif" font-size="14.00">Loan</text>
+</g>
+<!-- Book&#45;&#45;Loan -->
+<g id="edge1" class="edge">
+<title>Book--Loan</title>
+<path fill="none" stroke="black" d="M24.26,-88.75C23.33,-78.29 23.54,-64.86 28.35,-54 32.7,-44.19 41.23,-35.78 48.96,-29.66"></path>
+<text text-anchor="middle" x="54.82" y="-58.2" font-family="Times,serif" font-size="14.00">borrowed</text>
+</g>
+<!-- Member -->
+<g id="node2" class="node">
+<title>Member</title>
+<polygon fill="none" stroke="black" points="135.93,-124.8 72.07,-124.8 72.07,-88.8 135.93,-88.8 135.93,-124.8"></polygon>
+<text text-anchor="middle" x="104" y="-102.6" font-family="Times,serif" font-size="14.00">Member</text>
+</g>
+<!-- Member&#45;&#45;Loan -->
+<g id="edge2" class="edge">
+<title>Member--Loan</title>
+<path fill="none" stroke="black" d="M96.88,-88.44C92.68,-78.33 87.18,-65.38 82,-54 78.87,-47.11 75.22,-39.55 72.11,-33.23"></path>
+<text text-anchor="middle" x="105.88" y="-58.2" font-family="Times,serif" font-size="14.00">makes</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="crows-foot-notation-mermaid" class="level3">
+<h3 class="anchored" data-anchor-id="crows-foot-notation-mermaid"><strong>Crow’s Foot Notation (Mermaid)</strong></h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    BOOK {
+        int book_id
+        string title
+        string author
+        string genre
+        int publication_year
+    }
+    MEMBER {
+        int member_id
+        string name
+        date membership_date
+        string email
+        string phone
+    }
+    LOAN {
+        int loan_id
+        int book_id
+        int member_id
+        date loan_date
+        date return_date
+    }
+    BOOK ||--o{ LOAN : borrowed
+    MEMBER ||--o{ LOAN : makes
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="problem-2-restaurant-reservation-system" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2-restaurant-reservation-system">Problem 2: Restaurant Reservation System</h2>
+<section id="entities-and-attributes-1" class="level3">
+<h3 class="anchored" data-anchor-id="entities-and-attributes-1"><strong>Entities and Attributes</strong></h3>
+<ul>
+<li><strong>Customer</strong> (customer_id, name, contact_number)</li>
+<li><strong>Table</strong> (table_number, seating_capacity, location)</li>
+<li><strong>Reservation</strong> (reservation_id, date, time, customer_id, table_number)</li>
+</ul>
+</section>
+<section id="chen-notation-graphviz-1" class="level3">
+<h3 class="anchored" data-anchor-id="chen-notation-graphviz-1"><strong>Chen Notation (Graphviz)</strong></h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 169.68 132.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>ER</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-128.8 165.68,-128.8 165.68,4 -4,4"></polygon>
+<!-- Customer -->
+<g id="node1" class="node">
+<title>Customer</title>
+<polygon fill="none" stroke="black" points="76.28,-124.8 5.4,-124.8 5.4,-88.8 76.28,-88.8 76.28,-124.8"></polygon>
+<text text-anchor="middle" x="40.84" y="-102.6" font-family="Times,serif" font-size="14.00">Customer</text>
+</g>
+<!-- Reservation -->
+<g id="node3" class="node">
+<title>Reservation</title>
+<polygon fill="none" stroke="black" points="80.84,-36 0.16,-18 80.84,0 161.52,-18 80.84,-36"></polygon>
+<text text-anchor="middle" x="80.84" y="-13.8" font-family="Times,serif" font-size="14.00">Reservation</text>
+</g>
+<!-- Customer&#45;&#45;Reservation -->
+<g id="edge1" class="edge">
+<title>Customer--Reservation</title>
+<path fill="none" stroke="black" d="M47.97,-88.41C52.21,-78.3 57.76,-65.35 63.07,-54 66.13,-47.46 69.71,-40.33 72.84,-34.23"></path>
+<text text-anchor="middle" x="80.72" y="-58.2" font-family="Times,serif" font-size="14.00">makes</text>
+</g>
+<!-- Table -->
+<g id="node2" class="node">
+<title>Table</title>
+<polygon fill="none" stroke="black" points="147.84,-124.8 93.84,-124.8 93.84,-88.8 147.84,-88.8 147.84,-124.8"></polygon>
+<text text-anchor="middle" x="120.84" y="-102.6" font-family="Times,serif" font-size="14.00">Table</text>
+</g>
+<!-- Table&#45;&#45;Reservation -->
+<g id="edge2" class="edge">
+<title>Table--Reservation</title>
+<path fill="none" stroke="black" d="M113.82,-88.39C109.65,-78.27 104.15,-65.32 98.84,-54 95.76,-47.44 92.15,-40.31 88.97,-34.21"></path>
+<text text-anchor="middle" x="114.17" y="-58.2" font-family="Times,serif" font-size="14.00">has</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="crows-foot-notation-mermaid-1" class="level3">
+<h3 class="anchored" data-anchor-id="crows-foot-notation-mermaid-1"><strong>Crow’s Foot Notation (Mermaid)</strong></h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    CUSTOMER {
+        int customer_id
+        string name
+        string contact_number
+    }
+    TABLE {
+        int table_number
+        int seating_capacity
+        string location
+    }
+    RESERVATION {
+        int reservation_id
+        date date
+        time time
+        int customer_id
+        int table_number
+    }
+    CUSTOMER ||--o{ RESERVATION : makes
+    TABLE ||--o{ RESERVATION : has
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="problem-3-school-course-enrollment-system" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3-school-course-enrollment-system">Problem 3: School Course Enrollment System</h2>
+<section id="entities-and-attributes-2" class="level3">
+<h3 class="anchored" data-anchor-id="entities-and-attributes-2"><strong>Entities and Attributes</strong></h3>
+<ul>
+<li><strong>Student</strong> (student_id, name, enrollment_date)</li>
+<li><strong>Course</strong> (course_id, title, credits)</li>
+<li><strong>Enrollment</strong> (enrollment_id, student_id, course_id, enrollment_date, grade)</li>
+</ul>
+</section>
+<section id="chen-notation-graphviz-2" class="level3">
+<h3 class="anchored" data-anchor-id="chen-notation-graphviz-2"><strong>Chen Notation (Graphviz)</strong></h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 162.10 132.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>ER</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-128.8 158.1,-128.8 158.1,4 -4,4"></polygon>
+<!-- Student -->
+<g id="node1" class="node">
+<title>Student</title>
+<polygon fill="none" stroke="black" points="69.33,-124.8 10.77,-124.8 10.77,-88.8 69.33,-88.8 69.33,-124.8"></polygon>
+<text text-anchor="middle" x="40.05" y="-102.6" font-family="Times,serif" font-size="14.00">Student</text>
+</g>
+<!-- Enrollment -->
+<g id="node3" class="node">
+<title>Enrollment</title>
+<polygon fill="none" stroke="black" points="77.05,-36 -0.05,-18 77.05,0 154.15,-18 77.05,-36"></polygon>
+<text text-anchor="middle" x="77.05" y="-13.8" font-family="Times,serif" font-size="14.00">Enrollment</text>
+</g>
+<!-- Student&#45;&#45;Enrollment -->
+<g id="edge1" class="edge">
+<title>Student--Enrollment</title>
+<path fill="none" stroke="black" d="M43.71,-88.57C46.21,-78.28 49.97,-65.1 54.95,-54 58.07,-47.05 62.39,-39.85 66.39,-33.81"></path>
+<text text-anchor="middle" x="73.1" y="-58.2" font-family="Times,serif" font-size="14.00">enrolls</text>
+</g>
+<!-- Course -->
+<g id="node2" class="node">
+<title>Course</title>
+<polygon fill="none" stroke="black" points="142.71,-124.8 87.39,-124.8 87.39,-88.8 142.71,-88.8 142.71,-124.8"></polygon>
+<text text-anchor="middle" x="115.05" y="-102.6" font-family="Times,serif" font-size="14.00">Course</text>
+</g>
+<!-- Course&#45;&#45;Enrollment -->
+<g id="edge2" class="edge">
+<title>Course--Enrollment</title>
+<path fill="none" stroke="black" d="M107.83,-88.48C103.6,-78.39 98.1,-65.44 93.05,-54 90.25,-47.64 87.08,-40.67 84.31,-34.64"></path>
+<text text-anchor="middle" x="122.38" y="-58.2" font-family="Times,serif" font-size="14.00">includes</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="crows-foot-notation-mermaid-2" class="level3">
+<h3 class="anchored" data-anchor-id="crows-foot-notation-mermaid-2"><strong>Crow’s Foot Notation (Mermaid)</strong></h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">erDiagram
+    STUDENT {
+        int student_id
+        string name
+        date enrollment_date
+    }
+    COURSE {
+        int course_id
+        string title
+        int credits
+    }
+    ENROLLMENT {
+        int enrollment_id
+        int student_id
+        int course_id
+        date enrollment_date
+        string grade
+    }
+    STUDENT ||--o{ ENROLLMENT : enrolls
+    COURSE ||--o{ ENROLLMENT : includes
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="design-choices" class="level2">
+<h2 class="anchored" data-anchor-id="design-choices">Design Choices</h2>
+<ul>
+<li><strong>Weak Entities:</strong> None identified in these models.</li>
+<li><strong>Composite Attributes:</strong> Not used to keep a normalized structure.</li>
+<li><strong>Multivalued Attributes:</strong> Not used; relationships capture multiple associations.</li>
+<li><strong>Normalization:</strong> All models are in <strong>3rd Normal Form (3NF)</strong>.</li>
+</ul>
+<hr>
+</section>
+<section id="submission" class="level2">
+<h2 class="anchored" data-anchor-id="submission">Submission</h2>
+<ul>
+<li><strong>GitHub Repository:</strong> [Insert your repository URL here]</li>
+<li><strong>File Submission:</strong> report.html uploaded to <strong>Canvas &amp; GitHub</strong></li>
+</ul>
+<hr>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This report demonstrates how to create <strong>Chen Notation (Graphviz)</strong> and <strong>Crow’s Foot Notation (Mermaid)</strong> for database design problems. The relational schemas and diagrams help visualize entity relationships and constraints in each system.</p>
 </section>
 </section>
 

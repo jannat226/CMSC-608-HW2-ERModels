@@ -1,21 +1,164 @@
 ---
-title: "Homework 2 - ER Models"
-author: "Jannat"
-date: "2025-01-09"
-output: html
-github_repo: "https://github.com/jannat226/CMSC-608-HW2-ERModels"
+title: "CMSC 608 - Homework 2"
+author: "Jenny"
+date: "Spring 2025"
+format: html
+output: html_document
 ---
 
-# **Introduction**
-This report covers three **Entity-Relation (ER) Models** with **Chen Notation** and **Crow’s Foot Notation**.
+# Entity-Relationship Diagrams (ER Diagrams)
 
-# **Model 1: Library Management System**
-## **Chen Notation (Graphviz)**
+## Introduction
+Entity-Relationship (ER) diagrams are essential for database design. This report presents the ER models for three selected problems using both **Chen notation (Graphviz)** and **Crow’s Foot notation (Mermaid)**.
+
+---
+
+## Problem 1: Library Management System
+### **Entities and Attributes**
+- **Book** (book_id, title, author, genre, publication_year)
+- **Member** (member_id, name, membership_date, email, phone)
+- **Loan** (loan_id, book_id, member_id, loan_date, return_date)
+
+### **Chen Notation (Graphviz)**
 ```{dot}
-digraph G {
-  Book [shape=box];
-  Member [shape=box];
-  Loan [shape=diamond, label="Borrows"];
-  Book -> Loan;
-  Member -> Loan;
+graph ER {
+    Book [shape=box];
+    Member [shape=box];
+    Loan [shape=diamond];
+    Book -- Loan [label="borrowed"];
+    Member -- Loan [label="makes"];
 }
+```
+
+### **Crow’s Foot Notation (Mermaid)**
+```{mermaid}
+erDiagram
+    BOOK {
+        int book_id
+        string title
+        string author
+        string genre
+        int publication_year
+    }
+    MEMBER {
+        int member_id
+        string name
+        date membership_date
+        string email
+        string phone
+    }
+    LOAN {
+        int loan_id
+        int book_id
+        int member_id
+        date loan_date
+        date return_date
+    }
+    BOOK ||--o{ LOAN : borrowed
+    MEMBER ||--o{ LOAN : makes
+```
+
+---
+
+## Problem 2: Restaurant Reservation System
+### **Entities and Attributes**
+- **Customer** (customer_id, name, contact_number)
+- **Table** (table_number, seating_capacity, location)
+- **Reservation** (reservation_id, date, time, customer_id, table_number)
+
+### **Chen Notation (Graphviz)**
+```{dot}
+graph ER {
+    Customer [shape=box];
+    Table [shape=box];
+    Reservation [shape=diamond];
+    Customer -- Reservation [label="makes"];
+    Table -- Reservation [label="has"];
+}
+```
+
+### **Crow’s Foot Notation (Mermaid)**
+```{mermaid}
+erDiagram
+    CUSTOMER {
+        int customer_id
+        string name
+        string contact_number
+    }
+    TABLE {
+        int table_number
+        int seating_capacity
+        string location
+    }
+    RESERVATION {
+        int reservation_id
+        date date
+        time time
+        int customer_id
+        int table_number
+    }
+    CUSTOMER ||--o{ RESERVATION : makes
+    TABLE ||--o{ RESERVATION : has
+```
+
+---
+
+## Problem 3: School Course Enrollment System
+### **Entities and Attributes**
+- **Student** (student_id, name, enrollment_date)
+- **Course** (course_id, title, credits)
+- **Enrollment** (enrollment_id, student_id, course_id, enrollment_date, grade)
+
+### **Chen Notation (Graphviz)**
+```{dot}
+graph ER {
+    Student [shape=box];
+    Course [shape=box];
+    Enrollment [shape=diamond];
+    Student -- Enrollment [label="enrolls"];
+    Course -- Enrollment [label="includes"];
+}
+```
+
+### **Crow’s Foot Notation (Mermaid)**
+```{mermaid}
+erDiagram
+    STUDENT {
+        int student_id
+        string name
+        date enrollment_date
+    }
+    COURSE {
+        int course_id
+        string title
+        int credits
+    }
+    ENROLLMENT {
+        int enrollment_id
+        int student_id
+        int course_id
+        date enrollment_date
+        string grade
+    }
+    STUDENT ||--o{ ENROLLMENT : enrolls
+    COURSE ||--o{ ENROLLMENT : includes
+```
+
+---
+
+## Design Choices
+- **Weak Entities:** None identified in these models.
+- **Composite Attributes:** Not used to keep a normalized structure.
+- **Multivalued Attributes:** Not used; relationships capture multiple associations.
+- **Normalization:** All models are in **3rd Normal Form (3NF)**.
+
+---
+
+## Submission
+- **GitHub Repository:** [Insert your repository URL here]
+- **File Submission:** report.html uploaded to **Canvas & GitHub**
+
+---
+
+## Conclusion
+This report demonstrates how to create **Chen Notation (Graphviz)** and **Crow’s Foot Notation (Mermaid)** for database design problems. The relational schemas and diagrams help visualize entity relationships and constraints in each system.

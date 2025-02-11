@@ -1,0 +1,21 @@
+---
+title: "Homework 2 - ER Models"
+author: "Jannat"
+date: "2025-01-09"
+output: html
+github_repo: "https://github.com/jannat226/CMSC-608-HW2-ERModels"
+---
+
+# **Introduction**
+This report covers three **Entity-Relation (ER) Models** with **Chen Notation** and **Crow’s Foot Notation**.
+
+# **Model 1: Library Management System**
+## **Chen Notation (Graphviz)**
+```{dot}
+digraph G {
+  Book [shape=box];
+  Member [shape=box];
+  Loan [shape=diamond, label="Borrows"];
+  Book -> Loan;
+  Member -> Loan;
+}
